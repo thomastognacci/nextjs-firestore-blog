@@ -13,7 +13,7 @@ export default class MyDocument extends Document {
     return (
       <html>
         <Head>{this.props.styleTags}</Head>
-        <body className="custom_class">
+        <body>
           <Main />
           <NextScript />
         </body>

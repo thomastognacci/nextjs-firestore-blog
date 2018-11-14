@@ -2,10 +2,11 @@ import React from "react";
 import Link from "next/link";
 import styled from "styled-components";
 
-const StyledNav = styled.nav`
+const StyledNav = styled.div`
   width: 100%;
   text-align: center;
 `;
+
 const Nav = () => {
   return (
     <StyledNav>

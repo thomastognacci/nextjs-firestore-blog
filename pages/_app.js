@@ -3,7 +3,7 @@ import App, {Container} from "next/app";
 import Page from "../components/Page";
 
 export default class MyApp extends App {
-  static async getInitialProps({Component, router, ctx}) {
+  static async getInitialProps({Component, ctx}) {
     let pageProps = {};
 
     if (Component.getInitialProps) {
