@@ -7,6 +7,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next build && NODE_ENV=production node server.js",
+    "heroku-postbuild": "npm run build",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Thomas Tognacci",
