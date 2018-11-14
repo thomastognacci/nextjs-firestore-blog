@@ -6,14 +6,15 @@
   "scripts": {
     "dev": "next",
     "build": "next build",
-    "start": "next start",
+    "start": "NODE_ENV=production node server.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
+  "author": "Thomas Tognacci",
   "license": "ISC",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
     "draft-js": "^0.10.5",
+    "express": "^4.16.4",
     "firebase": "^5.5.8",
     "immutable": "^4.0.0-rc.12",
     "next": "^7.0.2",
