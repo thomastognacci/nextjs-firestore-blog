@@ -2,10 +2,13 @@ import React, {Component} from "react";
 import dynamic from "next/dynamic";
 import {EditorState} from "draft-js";
 import StyledEditor from "./styles/StyledEditor";
+import {uploadImageToFirebase} from "../lib/uploadToFirebase";
 
 const Editor = dynamic(import("react-draft-wysiwyg").then((module) => module.Editor), {
   ssr: false,
 });
+
+const uploadImageCallBack = uploadImageToFirebase;
 
 class EditorComponent extends Component {
   state = {
@@ -24,14 +27,17 @@ class EditorComponent extends Component {
       <StyledEditor>
         <Editor
           editorState={editorState}
-          wrapperClassName="demo-wrapper"
-          editorClassName="demo-editor"
           onEditorStateChange={this.onEditorStateChange}
           toolbar={{
             options: ["inline", "blockType", "image", "history"],
             inline: {options: ["bold", "italic", "underline"]},
             blockType: {
               options: ["Normal", "H2", "H3"],
+            },
+            image: {
+              uploadCallback: uploadImageCallBack,
+              previewImage: true,
+              alt: {present: true, mandatory: true},
             },
           }}
         />

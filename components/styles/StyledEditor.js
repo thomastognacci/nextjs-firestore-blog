@@ -819,6 +819,10 @@ const StyledEditor = styled.div`
     height: 100%;
     overflow: auto;
     box-sizing: border-box;
+    border-right: 1px solid #f1f1f1;
+    border-bottom: 1px solid #f1f1f1;
+    border-left: 1px solid #f1f1f1;
+    padding: 0 2rem;
   }
   .rdw-editor-toolbar {
     padding: 6px 5px 0;
@@ -829,7 +833,6 @@ const StyledEditor = styled.div`
     background: white;
     flex-wrap: wrap;
     font-size: 15px;
-    margin-bottom: 5px;
     user-select: none;
   }
   .public-DraftStyleDefault-block {
