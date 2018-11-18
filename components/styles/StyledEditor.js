@@ -1,6 +1,9 @@
 import styled from "styled-components";
 
 const StyledEditor = styled.div`
+  img {
+    max-width: 100%;
+  }
   .rdw-option-wrapper {
     border: 1px solid #f1f1f1;
     padding: 5px;

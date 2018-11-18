@@ -35,9 +35,12 @@ class EditorComponent extends Component {
               options: ["Normal", "H2", "H3"],
             },
             image: {
+              alignmentEnabled: false,
               uploadCallback: uploadImageCallBack,
               previewImage: true,
-              alt: {present: true, mandatory: true},
+              alt: false,
+              urlEnabled: false,
+              defaultSize: false,
             },
           }}
         />
