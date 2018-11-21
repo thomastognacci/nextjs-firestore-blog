@@ -3,6 +3,19 @@ import App, {Container} from "next/app";
 import Page from "../components/Page";
 
 export default class MyApp extends App {
+  state = {
+    isAdmin: false,
+    uid: null,
+  };
+
+  handleAdminSignIn = (uid) => {
+    if (uid) {
+      this.setState({isAdmin: true, uid});
+    } else {
+      this.setState({isAdmin: false, uid: null});
+    }
+  };
+
   static async getInitialProps({Component, ctx}) {
     let pageProps = {};
 
@@ -15,11 +28,11 @@ export default class MyApp extends App {
 
   render() {
     const {Component, pageProps} = this.props;
-
+    const {uid, isAdmin} = this.state;
     return (
       <Container>
         <Page>
-          <Component {...pageProps} />
+          <Component isAdmin={isAdmin} {...pageProps} handleAdminSignIn={this.handleAdminSignIn} />
         </Page>
       </Container>
     );

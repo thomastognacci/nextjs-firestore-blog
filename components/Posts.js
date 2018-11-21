@@ -1,20 +1,17 @@
 import React, {Component} from "react";
-
+import Post from "./Post";
 class Posts extends Component {
   render() {
     return (
-      <ul>
+      <ul style={{listStyle: "none", padding: 0}}>
         <li>
-          <h2 style={{marginBottom: 0}}>Post title</h2>
-          <div>Post content</div>
+          <Post isAdmin={this.props.isAdmin} />
         </li>
         <li>
-          <h2 style={{marginBottom: 0}}>Post title</h2>
-          <div>Post content</div>
+          <Post isAdmin={this.props.isAdmin} />
         </li>
         <li>
-          <h2 style={{marginBottom: 0}}>Post title</h2>
-          <div>Post content</div>
+          <Post isAdmin={this.props.isAdmin} />
         </li>
       </ul>
     );

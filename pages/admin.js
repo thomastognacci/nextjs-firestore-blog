@@ -1,7 +1,9 @@
+import Login from "../components/Login";
+
 const Admin = (props) => (
   <div>
     <h1>Adminland!</h1>
-    <div>Login!</div>
+    <Login handleAdminSignIn={props.handleAdminSignIn} />
   </div>
 );
 
