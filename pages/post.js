@@ -2,7 +2,7 @@ import EditorComponent from "../components/EditorComponent";
 
 const Post = (props) => (
   <>
-    <h1>Hi, meh.</h1>
+    <h1>Write your story!</h1>
     <EditorComponent />
   </>
 );
