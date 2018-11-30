@@ -14,11 +14,13 @@
   "license": "ISC",
   "dependencies": {
     "@zeit/next-css": "^1.0.1",
+    "dotenv-webpack": "^1.5.7",
     "draft-js": "^0.10.5",
     "express": "^4.16.4",
     "firebase": "^5.5.8",
     "immutable": "^4.0.0-rc.12",
     "next": "^7.0.2",
+    "nprogress": "^0.2.0",
     "react": "^16.6.3",
     "react-dom": "^16.6.3",
     "react-draft-wysiwyg": "^1.12.13",
