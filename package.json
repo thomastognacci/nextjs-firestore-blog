@@ -16,6 +16,7 @@
     "@zeit/next-css": "^1.0.1",
     "dotenv-webpack": "^1.5.7",
     "draft-js": "^0.10.5",
+    "draftjs-to-html": "^0.8.4",
     "express": "^4.16.4",
     "firebase": "^5.5.8",
     "immutable": "^4.0.0-rc.12",
