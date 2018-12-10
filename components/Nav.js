@@ -8,7 +8,7 @@ const StyledNav = styled.nav`
   justify-content: center;
   width: 100%;
   padding: 0.5em 2em;
-  background-color: #ffeb3b;
+  background-color: ${(props) => (props.isAdmin ? "#009688" : "#ffeb3b")};
 
   li {
     list-style: none;
@@ -30,7 +30,7 @@ const StyledNav = styled.nav`
     }
   }
   a {
-    color: #3b60d0;
+    color: ${(props) => (props.isAdmin ? "#FFFFFF" : "#3b60d0")};
     text-decoration: none;
     transition: color 0.25s;
 
@@ -40,9 +40,10 @@ const StyledNav = styled.nav`
   }
 `;
 
-const Nav = () => {
+const Nav = (props) => {
   return (
-    <StyledNav>
+    <StyledNav isAdmin={props.isAdmin}>
+      {console.log(props)}
       <li>
         <Link href="/">
           <a>View Posts</a>

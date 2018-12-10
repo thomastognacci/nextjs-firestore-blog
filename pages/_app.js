@@ -1,6 +1,7 @@
 import React from "react";
 import App, {Container} from "next/app";
 import Page from "../components/Page";
+import {auth} from "../lib/firebase";
 
 export default class MyApp extends App {
   state = {
@@ -26,12 +27,22 @@ export default class MyApp extends App {
     return {pageProps};
   }
 
+  componentDidMount() {
+    console.log("mounted");
+
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        this.handleAdminSignIn(user);
+      }
+    });
+  }
+
   render() {
     const {Component, pageProps} = this.props;
     const {uid, isAdmin} = this.state;
     return (
       <Container>
-        <Page>
+        <Page isAdmin={isAdmin}>
           <Component isAdmin={isAdmin} {...pageProps} handleAdminSignIn={this.handleAdminSignIn} />
         </Page>
       </Container>

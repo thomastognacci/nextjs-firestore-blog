@@ -4,23 +4,20 @@ import Router from "next/router";
 import NProgress from "nprogress";
 
 Router.onRouteChangeStart = () => {
-  console.log("start");
-
   NProgress.start();
 };
 Router.onRouteChangeComplete = () => {
-  console.log("done");
-
   NProgress.done();
 };
 Router.onRouteChangeError = () => {
   NProgress.done();
 };
 
-const Header = () => {
+const Header = (props) => {
+  const {isAdmin} = props;
   return (
     <header>
-      <Nav />
+      <Nav isAdmin={isAdmin} />
     </header>
   );
 };

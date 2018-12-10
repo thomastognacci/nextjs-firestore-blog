@@ -1,9 +1,11 @@
 import React, {Component} from "react";
 import dynamic from "next/dynamic";
 import {EditorState, convertToRaw} from "draft-js";
+import draftToHtml from "draftjs-to-html";
+
 import StyledEditor from "./styles/StyledEditor";
 import {uploadImageToFirebase} from "../lib/uploadToFirebase";
-import draftToHtml from "draftjs-to-html";
+import {db} from "../lib/firebase";
 
 const Editor = dynamic(import("react-draft-wysiwyg").then((module) => module.Editor), {
   ssr: false,
@@ -19,6 +21,15 @@ class EditorComponent extends Component {
   onEditorStateChange = (editorState) => {
     this.setState({
       editorState,
+    });
+  };
+
+  handleClick = () => {
+    const ref = db.collection("stories").doc("story-1");
+    const story = convertToRaw(this.state.editorState.getCurrentContent());
+
+    ref.set({content: story}).then(function() {
+      console.log("Document successfully written!", ref);
     });
   };
 
@@ -47,6 +58,7 @@ class EditorComponent extends Component {
             }}
           />
         </StyledEditor>
+        <button onClick={this.handleClick}>Submit your story</button>
         <p>Current content:</p>
         <textarea
           disabled

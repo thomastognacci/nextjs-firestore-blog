@@ -25,12 +25,12 @@ html {
   }
 `;
 const Page = (props) => {
-  const {children} = props;
+  const {children, isAdmin} = props;
   return (
     <>
       <GlobalStyle />
       <Meta />
-      <Header />
+      <Header isAdmin={isAdmin} />
       <Inner>{children}</Inner>
     </>
   );
