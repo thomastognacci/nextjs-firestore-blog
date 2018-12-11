@@ -28,8 +28,6 @@ export default class MyApp extends App {
   }
 
   componentDidMount() {
-    console.log("mounted");
-
     auth.onAuthStateChanged((user) => {
       if (user) {
         this.handleAdminSignIn(user);

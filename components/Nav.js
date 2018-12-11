@@ -43,7 +43,6 @@ const StyledNav = styled.nav`
 const Nav = (props) => {
   return (
     <StyledNav isAdmin={props.isAdmin}>
-      {console.log(props)}
       <li>
         <Link href="/">
           <a>View Posts</a>

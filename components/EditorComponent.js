@@ -45,15 +45,17 @@ class EditorComponent extends Component {
               options: ["inline", "blockType", "image", "history"],
               inline: {options: ["bold", "italic", "underline"]},
               blockType: {
-                options: ["Normal", "H2", "H3"],
+                className: "hi",
+                inDropdown: false,
+                options: ["Normal", "H2"],
               },
               image: {
-                alignmentEnabled: false,
+                alignmentEnabled: true,
                 uploadCallback: uploadImageCallBack,
                 previewImage: true,
                 alt: false,
+                inputAccept: "image/jpeg,image/jpg,image/png,",
                 urlEnabled: false,
-                defaultSize: false,
               },
             }}
           />

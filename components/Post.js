@@ -1,7 +1,7 @@
 import React, {Component} from "react";
 import styled from "styled-components";
-import {db} from "../lib/firebase";
 import draftToHtml from "draftjs-to-html";
+import {Editor, EditorState, convertFromRaw} from "draft-js";
 
 const StyledPost = styled.div`
   border: 1px solid grey;
@@ -18,37 +18,22 @@ const StyledPost = styled.div`
 class Post extends Component {
   state = {
     story: null,
+    editorState: EditorState.createEmpty(),
   };
-  renderPost = () => {
-    const ref = db.collection("stories").doc("story-1");
 
-    ref
-      .get()
-      .then(function(doc) {
-        if (doc.exists) {
-          return doc.data().content;
-        } else {
-          // doc.data() will be undefined in this case
-          console.log("No such document!");
-        }
-      })
-      .then((story) => {
-        this.setState({story});
-      })
-      .catch(function(error) {
-        console.log("Error getting document:", error);
-      });
-  };
   componentDidMount() {
-    this.renderPost();
+    const contentState = convertFromRaw(this.props.theStory);
+    const editorState = EditorState.createWithContent(contentState);
+    this.setState({editorState});
   }
   render() {
     return (
       <StyledPost>
         <h2 style={{marginBottom: 0}}>Post title</h2>
-        {draftToHtml(this.state.story)}
 
-        {/* <div dangerouslySetInnerHTML={{__html: this.state.story}} /> */}
+        {/* <Editor editorState={this.state.editorState} readOnly /> */}
+
+        <div dangerouslySetInnerHTML={{__html: draftToHtml(this.props.theStory)}} />
         {this.props.isAdmin && <button>delete</button>}
       </StyledPost>
     );

@@ -5,13 +5,7 @@ class Posts extends Component {
     return (
       <ul style={{listStyle: "none", padding: 0}}>
         <li>
-          <Post isAdmin={this.props.isAdmin} />
-        </li>
-        <li>
-          <Post isAdmin={this.props.isAdmin} />
-        </li>
-        <li>
-          <Post isAdmin={this.props.isAdmin} />
+          <Post theStory={this.props.theStory} isAdmin={this.props.isAdmin} />
         </li>
       </ul>
     );
